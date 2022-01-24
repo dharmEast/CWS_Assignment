@@ -85,14 +85,15 @@
 .userName{
   float: right;
   margin-top: -3rem;
+  border-radius: 3px;
+  background: #201c1c;
+  cursor: pointer;
+  color: whitesmoke;
 }
 .Logout{
-  margin-top: -1.7rem;
-  float: right;
-  border-radius: 0px;
-  width: 5.9rem;
-  background: #efefef;
-  cursor: pointer;
+    border-radius: 3px;
+    background: #e51616;
+    cursor: pointer;
 
 }
 .App-header{
