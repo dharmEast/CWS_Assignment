@@ -10,7 +10,7 @@ import JsonComponent from "./Components/JsonComponent/JsonComponent.container";
 function App(props) {
   const { storeUserDetails, logOut } = props;
   const [isModelOpen, setModelOpen] = useState(false);
-  const timeOut = 10000;
+  const timeOut = 60000;
   const history = useHistory();
   const handleOnIdle = () => {
     if (localStorage.userName) {
