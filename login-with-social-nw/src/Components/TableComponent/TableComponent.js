@@ -12,7 +12,6 @@ function TableComponent(props) {
             storeUserDetails({userName})
         }
     },[])
-    console.log("userName is",userName);
     const data = React.useMemo(
         () => [
             {

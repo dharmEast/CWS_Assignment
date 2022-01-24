@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom'
 import { useIdleTimer } from 'react-idle-timer';
 import './App.css';
-import { signInWithGoogle, signInWithFb, signOutUser } from "./Auth";
+import { signOutUser } from "./Auth";
 import Header from "./Components/Header/Header.container";
 import Home from "./Components/Home/Home.container";
 import TableComponent from "./Components/TableComponent/TableComponent.container";
@@ -10,10 +10,9 @@ import JsonComponent from "./Components/JsonComponent/JsonComponent.container";
 function App(props) {
   const { storeUserDetails, logOut } = props;
   const [isModelOpen, setModelOpen] = useState(false);
-  const timeOut = 60000;
+  const timeOut = 10000;
   const history = useHistory();
-  const handleOnIdle = event => {
-    console.log('user is idle', event)
+  const handleOnIdle = () => {
     if (localStorage.userName) {
       setModelOpen(true);
       console.log('last active', getLastActiveTime());
@@ -48,8 +47,6 @@ function App(props) {
       localStorage.userEmail = email;
       localStorage.imgSrc = profileFoto;
       localStorage.userName = userName;
-      console.log(userInfo);
-      console.log(displayName, profileFoto);
     })
       .catch(err => {
         console.log(err);
@@ -58,7 +55,7 @@ function App(props) {
 
   const logoutHandler = () => {
     signOutUser().then((res) => {
-      console.log('logged out succesfully ', res);
+      console.log('logged out succesfully ');
       localStorage.clear();
       logOut();
       history.push('/');
@@ -85,7 +82,6 @@ function App(props) {
       </Switch>
       {isModelOpen && localStorage.userName && <div id="myModal" className="modal">
         <div className="modal-content">
-          <span class="close" onClick={closeModal}>&times;</span>
           <p>Do want to continue?</p>
           <button onClick={closeModal}>Continue</button>
         </div>

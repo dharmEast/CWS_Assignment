@@ -1,4 +1,4 @@
-import React, { memo,useEffect } from 'react';
+import { memo,useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 var obj ={
     name:"Tom Holland",

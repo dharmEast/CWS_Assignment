@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getAuth,GoogleAuthProvider,FacebookAuthProvider, signInWithPopup,signOut } from "firebase/auth"; 
 
 const firebaseConfig = {
@@ -20,23 +19,10 @@ const fbProvider = new FacebookAuthProvider();
 
 export const signInWithGoogle = () =>{
     return signInWithPopup(auth,gProvider);
-    // signInWithPopup(auth,gProvider).then((result)=>{
-    //     console.log(result);
-    // })
-    // .catch(err=>{
-    //     console.log(err);
-    // })
 }
 
 export const signInWithFb = () =>{
     return signInWithPopup(auth,fbProvider);
-    // signInWithPopup(auth,fbProvider).then((result)=>{
-    //     console.log(result);
-    // })
-    // .catch(err=>{
-    //     console.log(err);
-    // })
 }
 
 export const signOutUser = () => signOut(auth);
-// const analytics = getAnalytics(app);

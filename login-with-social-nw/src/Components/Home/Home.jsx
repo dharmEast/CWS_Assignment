@@ -1,5 +1,5 @@
 import React from 'react';
-import { signInWithGoogle, signInWithFb, signOutUser } from "../../Auth";
+import { signInWithGoogle, signInWithFb } from "../../Auth";
 
 const Home = (props) => {
     let { userName,loginHandler,name,myEmail,imgSrc } = props

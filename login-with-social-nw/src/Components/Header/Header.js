@@ -10,19 +10,18 @@ const Header = (props) => {
         setProfileButtonClicked(!isProfileButtonClicked)
     }
     userName = userName || localStorage.userName;
-    console.log(userName);
     return (
         <div>
             <header className="App-header">
                 {
-                    (userName) && <button className="userName" onClick={btnHandler}>
+                    (!userName) && <button className="userName" onClick={btnHandler}>
                         User: {userName || 'Dharm'}
                     </button>
                 }
                 {
-                    (isProfileButtonClicked && userName ) && <button className="Logout" onClick={logoutHandler}>
+                    (isProfileButtonClicked && !userName ) && <div className="Logout" onClick={logoutHandler}>
                         logout
-                    </button>
+                    </div>
                 }
             </header>
         </div>
